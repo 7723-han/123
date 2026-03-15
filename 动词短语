@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📘 现西1-4册 · 动词搭配与短语（CEFR难度A1-C1）</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: #334155;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+        }
+        .search-section {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,20,50,0.05);
+            margin-bottom: 2rem;
+            border: 1px solid #e9eef2;
+        }
+        .search-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: flex-end;
+        }
+        .search-field {
+            flex: 2 1 300px;
+        }
+        .filter-field {
+            flex: 1 1 200px;
+        }
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #475569;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 1rem;
+            background: #ffffff;
+            transition: 0.15s;
+            font-family: inherit;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+        }
+        .stats {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .stats span {
+            background: #f1f5f9;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .catalog {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .catalog button {
+            background: white;
+            border: 1px solid #d1d9e6;
+            border-radius: 40px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: 0.1s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .catalog button.active {
+            background: #1e3c72;
+            border-color: #1e3c72;
+            color: white;
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.8rem;
+            align-items: start;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem 1.5rem 1.8rem 1.5rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.02), 0 4px 8px rgba(0,20,30,0.03);
+            border: 1px solid #edf2f7;
+            transition: 0.2s;
+            height: fit-content;
+        }
+        .card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 30px -10px rgba(0,35,70,0.08);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dashed #dce5ec;
+            padding-bottom: 0.8rem;
+        }
+        .card-header h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0b2a4a;
+            letter-spacing: -0.01em;
+        }
+        .badge {
+            background: #dbeafe;
+            color: #1e4b8c;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+        }
+        .entry {
+            margin-bottom: 1.5rem;
+            border-left: 3px solid transparent;
+            padding-left: 0.75rem;
+            transition: 0.1s;
+        }
+        .entry:hover {
+            border-left-color: #3b82f6;
+        }
+        .lema {
+            font-size: 1.3rem;
+            font-weight: 650;
+            color: #0a2942;
+            line-height: 1.3;
+        }
+        .lema small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #4b6f8c;
+            margin-left: 0.5rem;
+        }
+        .ejemplo {
+            margin-top: 0.4rem;
+            font-size: 0.98rem;
+            color: #2e4a6b;
+            background: #f2f6fc;
+            padding: 0.6rem 1rem;
+            border-radius: 14px;
+            border: 1px solid #e6edf6;
+        }
+        .ejemplo i {
+            color: #56789a;
+            font-style: italic;
+        }
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #54738f;
+        }
+        .meta span {
+            background: #ecf3fa;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .add-section {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            border: 2px dashed #a0b8d0;
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 18px rgba(0,30,60,0.04);
+        }
+        .add-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem 1.5rem;
+            align-items: end;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .btn {
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.1s, transform 0.1s;
+            border: 1px solid #1e3c72;
+        }
+        .btn:hover {
+            background: #143157;
+        }
+        .btn-secondary {
+            background: white;
+            color: #1e3c72;
+            border: 1.5px solid #a7c0db;
+        }
+        .btn-secondary:hover {
+            background: #eaf1fb;
+        }
+        .footnote {
+            text-align: center;
+            margin-top: 4rem;
+            color: #68788c;
+            font-size: 0.9rem;
+            border-top: 1px solid #dee7ef;
+            padding-top: 2rem;
+        }
+        .highlight {
+            background-color: #fef9c3;
+            font-weight: 500;
+            padding: 0 0.1rem;
+        }
+        .empty-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 40px;
+            color: #5f7d9c;
+            font-size: 1.2rem;
+        }
+        .user-added {
+            border-left: 4px solid #f59e0b;
+            background: #fffbeb;
+            border-radius: 0 16px 16px 0;
+            padding: 0.6rem 0.75rem 0.6rem 0.75rem;
+        }
+        .user-badge {
+            background: #fbbf24;
+            color: #7b4a1e;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        .level-A1 { background: #c8e6c9; color: #1e5a2e; }
+        .level-A2 { background: #c8e6c9; color: #1e5a2e; }
+        .level-B1 { background: #fff3c9; color: #8a6e2b; }
+        .level-B2 { background: #fff3c9; color: #8a6e2b; }
+        .level-C1 { background: #ffcdd2; color: #aa2e3e; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🇪🇸 现代西班牙语 · 动词短语典（CEFR A1 - C1）</h1>
+        <div class="subtitle">1-4 册核心动词 + 前置词固定搭配 & 常用短语 · 支持自建条目 · 难度精细分级</div>
+    </header>
+
+    <!-- 添加新条目区域 -->
+    <div class="add-section">
+        <div class="add-title">
+            <span>➕ 添加你自己的搭配 / 短语</span>
+            <span class="badge" style="background:#e9f0f9;">数据仅保存在你的浏览器中</span>
+        </div>
+        <div class="form-grid">
+            <div>
+                <label>🔤 动词短语 (lema) *</label>
+                <input type="text" id="new-lema" placeholder="ej. soñar con" autocomplete="off">
+            </div>
+            <div>
+                <label>📝 中文释义 *</label>
+                <input type="text" id="new-desc" placeholder="梦想, 梦见">
+            </div>
+            <div>
+                <label>📖 例句 (可选)</label>
+                <input type="text" id="new-ejemplo" placeholder="Sueño con viajar a España.">
+            </div>
+            <div>
+                <label>📚 册数</label>
+                <select id="new-libro">
+                    <option value="1">第一册</option>
+                    <option value="2">第二册</option>
+                    <option value="3">第三册</option>
+                    <option value="4">第四册</option>
+                </select>
+            </div>
+            <div>
+                <label>🏷️ 类型</label>
+                <select id="new-tipo">
+                    <option value="verbo+prep">🔗 动词+前置词</option>
+                    <option value="frase">💬 短语/句式</option>
+                </select>
+            </div>
+            <div>
+                <label>📌 CEFR 难度</label>
+                <select id="new-etiqueta">
+                    <option value="A1">A1 (入门)</option>
+                    <option value="A2">A2 (初级)</option>
+                    <option value="B1">B1 (中级)</option>
+                    <option value="B2">B2 (中高级)</option>
+                    <option value="C1">C1 (高级)</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 0.8rem; align-items: center;">
+                <button class="btn" id="btn-add">✔ 添加条目</button>
+                <button class="btn-secondary" id="btn-clear" type="button">清空表单</button>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:#5a6e88; margin-top:1rem;">* 必填。添加后立即生效，关闭页面不会丢失。</p>
+    </div>
+
+    <div class="search-section">
+        <div class="search-grid">
+            <div class="search-field">
+                <label>🔎 搜索动词、短语或中文</label>
+                <input type="text" id="buscador" placeholder="例如：acordarse,  pensar en,  tener que,  volver a..." autofocus>
+            </div>
+            <div class="filter-field">
+                <label>📚 按册过滤</label>
+                <select id="filtro-libro">
+                    <option value="all">📖 全四册</option>
+                    <option value="1">现代西班牙语 1</option>
+                    <option value="2">现代西班牙语 2</option>
+                    <option value="3">现代西班牙语 3</option>
+                    <option value="4">现代西班牙语 4</option>
+                </select>
+            </div>
+        </div>
+        <div class="stats" id="stats">
+            <span>📌 总计 <span id="total-count">0</span> 个搭配/短语</span>
+            <span>📘 第一册 <span id="count1">0</span></span>
+            <span>📗 第二册 <span id="count2">0</span></span>
+            <span>📙 第三册 <span id="count3">0</span></span>
+            <span>📕 第四册 <span id="count4">0</span></span>
+        </div>
+    </div>
+
+    <!-- 快捷标签：类型 + CEFR难度 -->
+    <div class="catalog" id="tag-filters">
+        <button class="active" data-tipo="all">📋 全部</button>
+        <button data-tipo="verbo+prep">🔗 动词+前置词</button>
+        <button data-tipo="frase">💬 短语·句式</button>
+        <button data-tipo="A1">🟢 A1</button>
+        <button data-tipo="A2">🟢 A2</button>
+        <button data-tipo="B1">🟡 B1</button>
+        <button data-tipo="B2">🟡 B2</button>
+        <button data-tipo="C1">🔴 C1</button>
+    </div>
+
+    <div id="entries-grid" class="main-grid">
+        <!-- 动态渲染 -->
+    </div>
+
+    <div class="footnote">
+        ⚡ 基于《现代西班牙语 1-4册》整理，内置条目难度按册数粗略映射：第一册≈A1，第二册≈A2，第三册≈B1，第四册≈B2。<br>
+        橙色左侧条表示你自定义的条目 · 所有自定义内容存储在浏览器本地。
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ---------- 内置数据（现代西班牙语 1-4册）按CEFR难度重新标记 ----------
+        const builtinData = [
+            // ========== 第一册 (主要A1，少数标A2) ==========
+            { lema: "ir + a + lugar", descripcion: "去某地", ejemplo: "Voy al hospital.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "ir + a + infinitivo", descripcion: "将要去做某事 (近将来)", ejemplo: "Voy a ver a Luisa.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "tener + que + infinitivo", descripcion: "必须做某事", ejemplo: "Tenemos que aprender una nueva lección.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "aprender + a + alguien", descripcion: "向某人学习", ejemplo: "Aprendo a mi profesor.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "contestar + a (algo/alguien)", descripcion: "回答……", ejemplo: "Contesto a la pregunta.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "pensar + en", descripcion: "想起, 考虑", ejemplo: "Pienso en ti.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "hablar + de", descripcion: "谈论", ejemplo: "Hablamos de la película.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "hay + que + infinitivo", descripcion: "有必要/应该(无人称)", ejemplo: "Hay que limpiar la ventana.", tipo: "frase", libro: 1, etiqueta: "A1" },
+            { lema: "acordarse + de", descripcion: "记得", ejemplo: "Me acuerdo de tu nombre.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            { lema: "despedirse + de", descripcion: "向……告别", ejemplo: "Me despido de mis amigos.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            { lema: "acostumbrarse + a", descripcion: "习惯于", ejemplo: "Me acostumbro al clima.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            { lema: "empezar + a + infinitivo", descripcion: "开始做某事", ejemplo: "Empiezo a estudiar.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "volver + a + infinitivo", descripcion: "再次做某事", ejemplo: "Vuelvo a leer el libro.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            { lema: "ayudar + a + alguien", descripcion: "帮助某人", ejemplo: "Ayudo a mi hermana.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "invitar + a", descripcion: "邀请", ejemplo: "Te invito a cenar.", tipo: "verbo+prep", libro: 1, etiqueta: "A1" },
+            { lema: "dedicarse + a", descripcion: "致力于, 从事", ejemplo: "Me dedico a la enseñanza.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            { lema: "soñar + con", descripcion: "梦见, 梦想", ejemplo: "Sueño con viajar.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            { lema: "contar + con", descripcion: "拥有, 依靠", ejemplo: "Cuento con tu ayuda.", tipo: "verbo+prep", libro: 1, etiqueta: "B1" },
+            { lema: "casarse + con", descripcion: "和……结婚", ejemplo: "Se casa con Juan.", tipo: "verbo+prep", libro: 1, etiqueta: "A2" },
+            // 第一册常用短语
+            { lema: "de nada", descripcion: "不客气", ejemplo: "—Gracias. —De nada.", tipo: "frase", libro: 1, etiqueta: "A1" },
+            { lema: "dar las gracias", descripcion: "道谢", ejemplo: "Te doy las gracias por todo.", tipo: "frase", libro: 1, etiqueta: "A1" },
+            { lema: "tener hambre / sed / sueño", descripcion: "饿/渴/困", ejemplo: "Los niños tienen hambre.", tipo: "frase", libro: 1, etiqueta: "A1" },
+            { lema: "hacer calor / frío / viento", descripcion: "天气热/冷/有风", ejemplo: "Hace mucho frío hoy.", tipo: "frase", libro: 1, etiqueta: "A1" },
+            { lema: "ponerse + adjetivo", descripcion: "变得……", ejemplo: "Me pongo nervioso.", tipo: "frase", libro: 1, etiqueta: "A2" },
+            { lema: "en casa", descripcion: "在家", ejemplo: "Estamos en casa.", tipo: "frase", libro: 1, etiqueta: "A1" },
+            // ========== 第二册 (主要A2，部分B1) ==========
+            { lema: "insistir + en", descripcion: "坚持", ejemplo: "Insiste en ir solo.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "consistir + en", descripcion: "在于, 由……组成", ejemplo: "La tarea consiste en leer.", tipo: "verbo+prep", libro: 2, etiqueta: "B1" },
+            { lema: "tardar + en + infinitivo", descripcion: "花费时间做某事", ejemplo: "Tarda en llegar.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "quedar + en + infinitivo", descripcion: "约定好做", ejemplo: "Quedamos en vernos.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "confiar + en", descripcion: "信任", ejemplo: "Confío en ti.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "dudar + en", descripcion: "对……犹豫", ejemplo: "Duda en aceptar.", tipo: "verbo+prep", libro: 2, etiqueta: "B1" },
+            { lema: "tratarse + de", descripcion: "关系到, 是关于", ejemplo: "Se trata de un problema grave.", tipo: "verbo+prep", libro: 2, etiqueta: "B1" },
+            { lema: "quejarse + de", descripcion: "抱怨", ejemplo: "Se queja del ruido.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "arrepentirse + de", descripcion: "后悔", ejemplo: "Me arrepiento de lo dicho.", tipo: "verbo+prep", libro: 2, etiqueta: "B1" },
+            { lema: "alegrarse + de", descripcion: "为……感到高兴", ejemplo: "Me alegro de verte.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "olvidarse + de", descripcion: "忘记", ejemplo: "Me olvidé de las llaves.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "enterarse + de", descripcion: "得知, 了解", ejemplo: "Me entero de la noticia.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "preocuparse + por", descripcion: "为……担心", ejemplo: "Se preocupa por su salud.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "interesarse + por", descripcion: "对……感兴趣", ejemplo: "Me intereso por la historia.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "luchar + por", descripcion: "为……奋斗", ejemplo: "Luchamos por la paz.", tipo: "verbo+prep", libro: 2, etiqueta: "B1" },
+            { lema: "empezar + por", descripcion: "从……开始", ejemplo: "Empieza por lo más fácil.", tipo: "verbo+prep", libro: 2, etiqueta: "B1" },
+            { lema: "terminar + de + infinitivo", descripcion: "结束做某事", ejemplo: "Termino de trabajar.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            { lema: "dejar + de + infinitivo", descripcion: "停止/不再做", ejemplo: "Deja de fumar.", tipo: "verbo+prep", libro: 2, etiqueta: "A2" },
+            // 第二册短语
+            { lema: "a menudo", descripcion: "经常", ejemplo: "Voy al cine a menudo.", tipo: "frase", libro: 2, etiqueta: "A2" },
+            { lema: "de repente", descripcion: "突然", ejemplo: "De repente empezó a llover.", tipo: "frase", libro: 2, etiqueta: "A2" },
+            { lema: "en serio", descripcion: "认真地", ejemplo: "Habla en serio.", tipo: "frase", libro: 2, etiqueta: "A2" },
+            { lema: "por fin", descripcion: "终于", ejemplo: "Por fin llegamos.", tipo: "frase", libro: 2, etiqueta: "A2" },
+            { lema: "al + infinitivo", descripcion: "一做……的时候", ejemplo: "Al salir, encontré a Ana.", tipo: "frase", libro: 2, etiqueta: "B1" },
+            // ========== 第三册 (主要B1，部分B2) ==========
+            { lema: "aconsejar + que + subj.", descripcion: "建议……", ejemplo: "Te aconsejo que estudies más.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "pedir + que + subj.", descripcion: "请求……", ejemplo: "Pido que me ayuden.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "hacer falta + que + subj.", descripcion: "需要", ejemplo: "Hace falta que vengas.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "dudar + que + subj.", descripcion: "怀疑……", ejemplo: "Dudo que sea verdad.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "no creer + que + subj.", descripcion: "不相信……", ejemplo: "No creo que llegue hoy.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "alegrarse + de que + subj.", descripcion: "高兴……", ejemplo: "Me alegro de que estés bien.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "sentir + que + subj.", descripcion: "抱歉/遗憾", ejemplo: "Siento que no puedas venir.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "extrañarse + de que + subj.", descripcion: "对……感到奇怪", ejemplo: "Me extraña que no lo sepa.", tipo: "frase", libro: 3, etiqueta: "B2" },
+            { lema: "temer + que + subj.", descripcion: "害怕……", ejemplo: "Temo que llueva.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "prohibir + que + subj.", descripcion: "禁止", ejemplo: "Prohíben que se fume.", tipo: "frase", libro: 3, etiqueta: "B1" },
+            { lema: "decir + que + subj. (no afirmativo)", descripcion: "让某人做(命令/愿望)", ejemplo: "Dile que venga.", tipo: "frase", libro: 3, etiqueta: "B2" },
+            { lema: "abstenerse + de", descripcion: "克制不做", ejemplo: "Me abstengo de opinar.", tipo: "verbo+prep", libro: 3, etiqueta: "B2" },
+            { lema: "tratar + de + infinitivo", descripcion: "试图做", ejemplo: "Trato de ayudarte.", tipo: "verbo+prep", libro: 3, etiqueta: "B1" },
+            { lema: "renunciar + a", descripcion: "放弃", ejemplo: "Renuncio al puesto.", tipo: "verbo+prep", libro: 3, etiqueta: "B2" },
+            // ========== 第四册 (主要B2，部分C1) ==========
+            { lema: "influir + en", descripcion: "影响", ejemplo: "Influye en mi decisión.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "participar + en", descripcion: "参与", ejemplo: "Participa en el concurso.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "confrontar + con", descripcion: "面对, 对照", ejemplo: "Confronta sus ideas con las mías.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "protestar + por / contra", descripcion: "抗议", ejemplo: "Protestan por la injusticia.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "traducir + a", descripcion: "翻译成(语言)", ejemplo: "Traduce al chino.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "oponerse + a", descripcion: "反对", ejemplo: "Me opongo a ese plan.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "referirse + a", descripcion: "提及, 指的是", ejemplo: "Se refiere al libro.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "asistir + a", descripcion: "出席, 参加", ejemplo: "Asiste a la reunión.", tipo: "verbo+prep", libro: 4, etiqueta: "B2" },
+            { lema: "acceder + a", descripcion: "同意, 进入", ejemplo: "Accede a nuestra petición.", tipo: "verbo+prep", libro: 4, etiqueta: "C1" },
+            { lema: "contribuir + a", descripcion: "促进, 捐助", ejemplo: "Contribuye al desarrollo.", tipo: "verbo+prep", libro: 4, etiqueta: "C1" },
+            { lema: "traer + consigo", descripcion: "带来, 伴随", ejemplo: "El cambio trae consigo problemas.", tipo: "frase", libro: 4, etiqueta: "C1" },
+            { lema: "en cuanto a", descripcion: "关于, 至于", ejemplo: "En cuanto a mí, no sé.", tipo: "frase", libro: 4, etiqueta: "B2" },
+            { lema: "a base de", descripcion: "基于, 通过", ejemplo: "Vive a base de frutas.", tipo: "frase", libro: 4, etiqueta: "B2" },
+        ];
+
+        // ---------- 用户自定义数据 (保存在localStorage) ----------
+        let userData = [];
+
+        try {
+            const stored = localStorage.getItem('userVerbsData');
+            if (stored) {
+                userData = JSON.parse(stored);
+                if (!Array.isArray(userData)) userData = [];
+            }
+        } catch (e) {
+            console.warn("读取localStorage失败", e);
+            userData = [];
+        }
+
+        // 合并数据
+        let data = [...builtinData, ...userData];
+
+        // 界面元素
+        const grid = document.getElementById('entries-grid');
+        const buscador = document.getElementById('buscador');
+        const filtroLibro = document.getElementById('filtro-libro');
+        const totalSpan = document.getElementById('total-count');
+        const count1 = document.getElementById('count1');
+        const count2 = document.getElementById('count2');
+        const count3 = document.getElementById('count3');
+        const count4 = document.getElementById('count4');
+        const tagButtons = document.querySelectorAll('[data-tipo]');
+        const btnAdd = document.getElementById('btn-add');
+        const btnClear = document.getElementById('btn-clear');
+        const newLema = document.getElementById('new-lema');
+        const newDesc = document.getElementById('new-desc');
+        const newEjemplo = document.getElementById('new-ejemplo');
+        const newLibro = document.getElementById('new-libro');
+        const newTipo = document.getElementById('new-tipo');
+        const newEtiqueta = document.getElementById('new-etiqueta');
+
+        // 当前过滤状态
+        let currentTag = 'all';
+        let currentSearch = '';
+        let currentLibro = 'all';
+
+        // 更新统计数字
+        function updateStats() {
+            totalSpan.innerText = data.length;
+            count1.innerText = data.filter(d => d.libro === 1).length;
+            count2.innerText = data.filter(d => d.libro === 2).length;
+            count3.innerText = data.filter(d => d.libro === 3).length;
+            count4.innerText = data.filter(d => d.libro === 4).length;
+        }
+        updateStats();
+
+        function normalize(text) {
+            return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function filterData() {
+            return data.filter(item => {
+                if (currentLibro !== 'all' && item.libro !== parseInt(currentLibro)) return false;
+
+                if (currentTag !== 'all') {
+                    // 类型过滤
+                    if (currentTag === 'verbo+prep' && item.tipo !== 'verbo+prep') return false;
+                    if (currentTag === 'frase' && item.tipo !== 'frase') return false;
+                    // 难度过滤 (A1, A2, B1, B2, C1)
+                    if (['A1','A2','B1','B2','C1'].includes(currentTag) && item.etiqueta !== currentTag) return false;
+                }
+
+                if (currentSearch.trim() !== '') {
+                    const term = normalize(currentSearch);
+                    const inLema = normalize(item.lema).includes(term);
+                    const inDesc = normalize(item.descripcion).includes(term);
+                    const inEjem = item.ejemplo ? normalize(item.ejemplo).includes(term) : false;
+                    if (!(inLema || inDesc || inEjem)) return false;
+                }
+                return true;
+            });
+        }
+
+        function highlightText(text, search) {
+            if (!search.trim()) return text;
+            const term = search.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${term})`, 'gi');
+            if (typeof text === 'string') {
+                return text.replace(regex, `<span class="highlight">$1</span>`);
+            }
+            return text;
+        }
+
+        function render() {
+            const filtered = filterData();
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="empty-message">😕 没有找到匹配的搭配。试试其他关键词，或者添加新条目！</div>`;
+                return;
+            }
+
+            let html = '';
+            filtered.forEach(item => {
+                const isUserEntry = item._user === true;
+                const lemah = currentSearch ? highlightText(item.lema, currentSearch) : item.lema;
+                const desch = currentSearch ? highlightText(item.descripcion, currentSearch) : item.descripcion;
+                const ejh = currentSearch && item.ejemplo ? highlightText(item.ejemplo, currentSearch) : (item.ejemplo || '');
+                const levelClass = `level-${item.etiqueta}`;
+
+                const entryClass = isUserEntry ? 'user-added' : '';
+
+                html += `<div class="entry ${entryClass}">`;
+                html += `<div class="lema">${lemah} <small>${desch}</small> ${isUserEntry ? '<span class="user-badge">自建</span>' : ''}</div>`;
+                if (item.ejemplo) {
+                    html += `<div class="ejemplo"><i>${ejh}</i></div>`;
+                }
+                html += `<div class="meta">`;
+                html += `<span>📚 第 ${item.libro} 册</span>`;
+                html += `<span class="${levelClass}">🏷️ ${item.etiqueta}</span>`;
+                html += `<span>${item.tipo === 'verbo+prep' ? '🔗 动介搭配' : '💬 短语/句式'}</span>`;
+                html += `</div></div>`;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        function rebuildData() {
+            data = [...builtinData, ...userData];
+            updateStats();
+            render();
+        }
+
+        function saveUserData() {
+            localStorage.setItem('userVerbsData', JSON.stringify(userData));
+        }
+
+        function addEntry() {
+            const lema = newLema.value.trim();
+            const desc = newDesc.value.trim();
+            const ejemplo = newEjemplo.value.trim();
+            const libro = parseInt(newLibro.value);
+            const tipo = newTipo.value;
+            const etiqueta = newEtiqueta.value; // "A1","A2","B1","B2","C1"
+
+            if (!lema || !desc) {
+                alert("请至少填写动词短语和中文释义");
+                return;
+            }
+
+            const newEntry = {
+                lema: lema,
+                descripcion: desc,
+                ejemplo: ejemplo || '',
+                libro: libro,
+                tipo: tipo,
+                etiqueta: etiqueta,
+                _user: true
+            };
+
+            userData.push(newEntry);
+            saveUserData();
+            rebuildData();
+
+            // 清空表单
+            newLema.value = '';
+            newDesc.value = '';
+            newEjemplo.value = '';
+            newLibro.value = '1';
+            newTipo.value = 'verbo+prep';
+            newEtiqueta.value = 'A1';
+        }
+
+        function clearForm() {
+            newLema.value = '';
+            newDesc.value = '';
+            newEjemplo.value = '';
+            newLibro.value = '1';
+            newTipo.value = 'verbo+prep';
+            newEtiqueta.value = 'A1';
+        }
+
+        btnAdd.addEventListener('click', addEntry);
+        btnClear.addEventListener('click', clearForm);
+
+        function handleInput() {
+            currentSearch = buscador.value;
+            render();
+        }
+
+        function handleLibroChange() {
+            currentLibro = filtroLibro.value;
+            render();
+        }
+
+        tagButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                tagButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentTag = btn.dataset.tipo;
+                render();
+            });
+        });
+
+        buscador.addEventListener('input', handleInput);
+        filtroLibro.addEventListener('change', handleLibroChange);
+
+        // 初始渲染
+        rebuildData();
+    })();
+</script>
+</body>
+</html>
